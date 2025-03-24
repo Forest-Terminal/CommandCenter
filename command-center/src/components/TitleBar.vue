@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 let name = ref('Command Center')
+
+function UpdateWidth() {
+  document.querySelector('.title-bar-input').style.width =
+    `${document.querySelector('.title-bar-text').clientWidth + 1}px`
+}
 </script>
 
 <template>
@@ -8,8 +13,8 @@ let name = ref('Command Center')
     <div class="title-bar-left flex items-center gap-2 justify-start">
       <!--Set the width of test equal to tpl -->
       <label
-        ><span id="tpl">{{ name }}</span
-        ><input id="test" v-model="name"
+        ><span class="title-bar-text">{{ name }}</span
+        ><input class="title-bar-input input input-ghost" @input="UpdateWidth()" v-model="name"
       /></label>
     </div>
     <div class="title-bar-right flex items-center gap-2 justify-end">
@@ -27,19 +32,17 @@ label {
   min-height: 1.4em;
 }
 
-#tpl {
+.title-bar-text {
   white-space: pre;
+  position: absolute;
+
   /* max-width : could be wised to set a maximum width and overflow:hidden; */
 }
 
-#test {
+.title-bar-input {
   font-family: inherit;
   font-size: inherit;
-  position: absolute;
-  vertical-align: top;
-  top: 0;
-  left: 0;
+
   width: 100%;
-  background: rgb(0, 0, 0);
 }
 </style>
