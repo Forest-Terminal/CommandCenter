@@ -10,15 +10,15 @@ function UpdateWidth() {
 <template>
   <div class="title-bar flex items-center gap-2 justify-between">
     <div class="title-bar-left flex items-center gap-2 justify-start">
-      <!--Set the width of test equal to tpl -->
-      <label
-        ><span class="title-bar-text">{{ name }}</span
-        ><input
+      <label>
+        <span class="title-bar-text">{{ name }}</span>
+        <input
           class="title-bar-input input input-ghost"
           @input="UpdateWidth()"
           @mouseenter="UpdateWidth()"
           v-model="name"
-      /></label>
+        />
+      </label>
     </div>
     <div class="title-bar-right flex items-center gap-2 justify-end">
       <button class="btn">Save</button>
